@@ -1,0 +1,29 @@
+export const navItems = [
+  { label: "처음 오셨다면", href: "/start" },
+  { label: "게시글", href: "/articles" },
+  { label: "무료자료", href: "/free" },
+  { label: "기능웹", href: "/tools" },
+  { label: "상품", href: "/store" },
+  { label: "제휴", href: "/partners" }
+];
+
+export const toolItems = [
+  {
+    slug: "rr-calculator",
+    title: "손익비 계산기",
+    href: "/tools/rr-calculator",
+    description: "진입가, 손절가, 익절가로 손실률·수익률·손익비를 계산합니다."
+  },
+  {
+    slug: "trade-journal",
+    title: "모의투자 기록장",
+    href: "/tools/trade-journal",
+    description: "조건식, 손절 기준, 결과, 복기를 같은 형식으로 저장합니다."
+  },
+  {
+    slug: "color-classifier",
+    title: "관심종목 색상 분류",
+    href: "/tools/color-classifier",
+    description: "빨강·파랑·회색으로 관심종목의 관찰 목적을 정리합니다."
+  }
+];
