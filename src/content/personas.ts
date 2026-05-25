@@ -29,7 +29,7 @@ export const personas: Persona[] = [
     description: "직장인을 위한 조건식 복기 루틴, 프리미엄 사례, 강의 사전예약을 확인하세요.",
     ctas: [
       { label: "복기표 받기", href: "/free?resource=daily-review-checklist" },
-      { label: "프리미엄 사례 보기", href: "/store/premium-article-pack" },
+      { label: "프리미엄 사례 보기", href: "/products/premium-notes" },
       { label: "강의 사전예약", href: "/course" }
     ],
     resourceSlug: "daily-review-checklist",
@@ -42,7 +42,7 @@ export const personas: Persona[] = [
     description: "4050 투자자를 위한 차트 색상 세팅, 조건식 체크리스트, 기초 강의 수요조사 페이지입니다.",
     ctas: [
       { label: "색상 세팅 가이드 받기", href: "/free?resource=color-setting" },
-      { label: "전자책 보기", href: "/store/ebook-beta" },
+      { label: "전자책 보기", href: "/products/ebook" },
       { label: "기초반 강의 신청", href: "/course" }
     ],
     resourceSlug: "color-setting",

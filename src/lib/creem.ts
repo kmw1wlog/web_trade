@@ -2,8 +2,12 @@ import crypto from "crypto";
 import { absoluteUrl } from "@/lib/utils";
 
 const productEnvMap: Record<string, string> = {
-  "premium-article-pack": "CREEM_PRODUCT_PREMIUM_ARTICLE_PACK",
+  ebook: "CREEM_PRODUCT_EBOOK_BETA",
+  "premium-notes": "CREEM_PRODUCT_PREMIUM_ARTICLE_PACK",
+  "web-tools": "CREEM_PRODUCT_PREMIUM_PASS",
+  "mock-league": "CREEM_PRODUCT_MOCK_LEAGUE_EARLYBIRD",
   "ebook-beta": "CREEM_PRODUCT_EBOOK_BETA",
+  "premium-article-pack": "CREEM_PRODUCT_PREMIUM_ARTICLE_PACK",
   "premium-pass": "CREEM_PRODUCT_PREMIUM_PASS",
   "mock-league-earlybird": "CREEM_PRODUCT_MOCK_LEAGUE_EARLYBIRD"
 };

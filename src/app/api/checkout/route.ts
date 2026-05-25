@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     product_slug: input.productSlug,
     creem_checkout_id: session.checkoutId || null,
     status: session.fallback ? "waitlist_fallback" : "pending",
-    amount: Number(product.price.replace(/[^0-9]/g, "")) || null,
+    amount: Number(product.priceLabel.replace(/[^0-9]/g, "")) || null,
     currency: "KRW",
     metadata: { source: input.source, persona: input.persona, utm: input.utm }
   });

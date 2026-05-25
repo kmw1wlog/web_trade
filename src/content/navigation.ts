@@ -1,10 +1,10 @@
 export const navItems = [
-  { label: "처음 오셨다면", href: "/start" },
-  { label: "게시글", href: "/articles" },
-  { label: "무료자료", href: "/free" },
+  { label: "상품", href: "/products" },
   { label: "기능웹", href: "/tools" },
-  { label: "상품", href: "/store" },
-  { label: "제휴", href: "/partners" }
+  { label: "웹블로그", href: "/blog" },
+  { label: "모의투자", href: "/mock" },
+  { label: "앱/강의 대기", href: "/waitlist" },
+  { label: "제휴문의", href: "/partners" }
 ];
 
 export const toolItems = [

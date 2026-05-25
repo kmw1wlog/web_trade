@@ -3,7 +3,7 @@ import type { Article } from "@/content/articles";
 
 export function ArticleCard({ article }: { article: Article }) {
   return (
-    <Link href={`/articles/${article.slug}`} className="group rounded-3xl border border-ink/10 bg-white/65 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+    <Link href={`/blog/${article.slug}`} className="group rounded-lg border border-line bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
       <div className="flex items-center gap-2 text-xs font-semibold text-clay">
         <span>{article.category}</span>
         <span>·</span>

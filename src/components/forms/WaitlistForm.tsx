@@ -16,6 +16,7 @@ export function WaitlistForm({
   persona?: string;
 }) {
   const [email, setEmail] = useState("");
+  const [interest, setInterest] = useState("");
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [status, setStatus] = useState<{ type: "success" | "error" | "info"; message: string }>();
 
@@ -36,7 +37,7 @@ export function WaitlistForm({
         selectedOptions,
         source,
         persona,
-        metadata: getStoredAttribution()
+        metadata: { ...getStoredAttribution(), interest }
       })
     });
     const data = (await response.json()) as { ok?: boolean; message?: string };
@@ -67,6 +68,12 @@ export function WaitlistForm({
         onChange={(event) => setEmail(event.target.value)}
         placeholder="이메일"
         required
+      />
+      <input
+        className="rounded-2xl border border-ink/15 bg-white px-4 py-3 text-sm outline-none focus:border-moss"
+        value={interest}
+        onChange={(event) => setInterest(event.target.value)}
+        placeholder="관심사 선택 입력"
       />
       <button className="rounded-2xl bg-ink px-4 py-3 text-sm font-bold text-paper transition hover:bg-moss" type="submit">
         사전예약 신청

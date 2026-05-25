@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
+import { StickyCTA } from "@/components/site/StickyCTA";
 import { AnalyticsProvider } from "@/components/analytics/AnalyticsProvider";
 import { defaultMetadata, site } from "@/content/site";
 import "./globals.css";
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AnalyticsProvider />
         <SiteHeader />
         <main>{children}</main>
+        <StickyCTA />
         <SiteFooter />
       </body>
     </html>

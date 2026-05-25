@@ -17,10 +17,9 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at top left, rgba(182, 107, 75, 0.16), transparent 32rem),
-    linear-gradient(135deg, #f7f2e8 0%, #efe4d2 45%, #f9f5ed 100%);
-  color: #17211c;
+  background: #faf8f3;
+  color: #15171a;
+  padding-bottom: 72px;
 }
 
 a {

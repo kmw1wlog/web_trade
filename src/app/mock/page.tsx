@@ -14,7 +14,7 @@ export default function MockPage() {
       <HeroSection
         title="모의투자 리그는 수익률만 평가하지 않습니다."
         description="조건식 실험, 기준 준수, 복기 성실도를 함께 보는 교육형 실험 리그를 준비 중입니다."
-        ctas={[{ label: "기록 폼으로 이동", href: "/tools/trade-journal" }, { label: "얼리버드 상품 보기", href: "/store/mock-league-earlybird", variant: "secondary" }]}
+        ctas={[{ label: "기록 폼으로 이동", href: "/tools" }, { label: "얼리버드 상품 보기", href: "/products/mock-league", variant: "secondary" }]}
       />
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
         <section className="rounded-3xl border border-ink/10 bg-white/75 p-6">

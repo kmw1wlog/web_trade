@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { articles } from "@/content/articles";
+import { blogPosts } from "@/content/blog";
 import { products } from "@/content/products";
 import { personas } from "@/content/personas";
 import { absoluteUrl } from "@/lib/utils";
@@ -8,17 +8,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
     "",
     "/start",
-    "/articles",
+    "/blog",
     "/free",
     "/tools",
     "/tools/rr-calculator",
     "/tools/trade-journal",
     "/tools/color-classifier",
-    "/store",
+    "/products",
     "/mock",
-    "/app",
-    "/course",
-    "/api-product",
+    "/waitlist",
     "/partners",
     "/crypto-gate",
     "/disclosure",
@@ -29,8 +27,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPaths.map((path) => ({ url: absoluteUrl(path), lastModified: new Date() })),
-    ...articles.map((article) => ({ url: absoluteUrl(`/articles/${article.slug}`), lastModified: new Date() })),
-    ...products.map((product) => ({ url: absoluteUrl(`/store/${product.slug}`), lastModified: new Date() })),
+    ...blogPosts.map((post) => ({ url: absoluteUrl(`/blog/${post.slug}`), lastModified: new Date() })),
+    ...products.map((product) => ({ url: absoluteUrl(product.href), lastModified: new Date() })),
     ...personas.map((persona) => ({ url: absoluteUrl(`/persona/${persona.slug}`), lastModified: new Date() }))
   ];
 }

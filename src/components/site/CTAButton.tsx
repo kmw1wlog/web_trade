@@ -17,9 +17,9 @@ export function CTAButton({
       href={href}
       className={cn(
         "inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-bold transition",
-        variant === "primary" && "bg-clay text-paper hover:bg-clay/90",
-        variant === "secondary" && "bg-paper text-ink hover:bg-oat",
-        variant === "ghost" && "border border-ink/15 text-ink hover:bg-oat/60",
+        variant === "primary" && "bg-navy text-white hover:bg-green",
+        variant === "secondary" && "border border-navy bg-white text-navy hover:bg-cream",
+        variant === "ghost" && "border border-line text-navy hover:bg-cream",
         className
       )}
     >
