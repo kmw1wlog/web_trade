@@ -15,8 +15,8 @@ const benefitCards: BenefitCardItem[] = [
   {
     id: "coupon",
     label: "무료",
-    title: "3일 무료 쿠폰",
-    description: "지표·기능 10회 체험권을 먼저 받아두세요.",
+    title: "3일 무료 이용 10회권",
+    description: "지표·기능 체험권을 보관해두고 다시 방문할 명분을 만드세요.",
     href: "#coupon",
     cta: "쿠폰 받기",
     eventName: "coupon_claim_click"
@@ -25,7 +25,7 @@ const benefitCards: BenefitCardItem[] = [
     id: "free-kit",
     label: "자료",
     title: "무료 지표·전자책",
-    description: "CVD, 거래량, 조건식 입문 자료를 무료로 받습니다.",
+    description: "CVD, 거래량, 조건식 입문 자료를 먼저 담아둡니다.",
     href: "#free-kit",
     cta: "자료 받기",
     eventName: "free_kit_click"
@@ -33,8 +33,8 @@ const benefitCards: BenefitCardItem[] = [
   {
     id: "premium-trial",
     label: "체험",
-    title: "프리미엄 1개월 혜택",
-    description: "심화 글과 프리미엄 노트 체험 혜택을 대기 신청합니다.",
+    title: "무료 1개월 프리미엄",
+    description: "네이버프리미엄/자체 프리미엄 체험 혜택을 준비 중입니다.",
     href: "#premium-trial",
     cta: "혜택 보기",
     eventName: "premium_trial_click"
@@ -42,8 +42,8 @@ const benefitCards: BenefitCardItem[] = [
   {
     id: "web-tools",
     label: "웹",
-    title: "웹 기능 체험",
-    description: "지표, 알림, 조건식, 모의투자 기능을 먼저 눌러봅니다.",
+    title: "무료 웹 기능",
+    description: "지표, 알림, 조건식, 모의투자 기능을 데모로 먼저 눌러봅니다.",
     href: "#tools-preview",
     cta: "기능 보기",
     eventName: "web_tool_try_click"
@@ -51,7 +51,7 @@ const benefitCards: BenefitCardItem[] = [
   {
     id: "app-beta",
     label: "앱",
-    title: "앱 무료 베타",
+    title: "무료 앱 베타",
     description: "웹에서 검증한 기능을 앱으로 옮기는 베타에 신청합니다.",
     href: "#app-beta",
     cta: "베타 신청",
@@ -140,53 +140,51 @@ const communityLinks = [
 export default function HomePage() {
   return (
     <div className="bg-cream">
-      <section className="border-b border-line bg-cream">
-        <div className="mx-auto max-w-6xl px-4 py-8 md:py-10">
-          <div className="mb-6 max-w-3xl">
-            <p className="text-sm font-black text-gold">SNS에서 오셨다면</p>
-            <h1 className="mt-3 font-display text-4xl font-black leading-tight text-navy md:text-5xl">무료 혜택부터 담아두세요</h1>
-            <p className="mt-3 text-base leading-7 text-muted md:text-lg">지표, 전자책, 앱 베타, 사전예약을 한 번에 확인하는 투자도구 허브입니다.</p>
-            <p className="mt-2 text-sm font-semibold text-muted">종목 추천이나 수익 보장이 아니라, 직접 판단할 수 있는 자료와 도구를 제공합니다.</p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              <TrackedLink href="#coupon" eventName="coupon_claim_click" className="rounded-lg bg-navy px-5 py-3 text-sm font-black text-white transition hover:bg-green">
-                무료 쿠폰 받기
-              </TrackedLink>
-              <TrackedLink href="#tools-preview" eventName="web_tool_try_click" className="rounded-lg border border-navy bg-white px-5 py-3 text-sm font-black text-navy transition hover:bg-white">
-                기능 체험하기
-              </TrackedLink>
+      <section className="border-b border-line bg-[#e8e8e6]">
+        <div className="mx-auto max-w-[1500px] px-4 py-7 md:px-8 md:py-12">
+          <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-gold">SNS 유입자용 보관함</p>
+              <h1 className="mt-2 font-display text-3xl font-black leading-tight text-navy md:text-4xl">무료 혜택부터 담아두세요</h1>
             </div>
+            <p className="max-w-xl text-sm font-semibold leading-6 text-muted">
+              긴 설명보다 먼저 눌러볼 것부터 모았습니다. 종목 추천이나 수익 보장이 아니라, 직접 확인할 수 있는 자료와 도구입니다.
+            </p>
           </div>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 2xl:grid-cols-6">
             {benefitCards.map((card, index) => (
               <BenefitCard key={card.id} card={card} featured={index === 0} />
             ))}
           </div>
+          <div className="mt-6 flex flex-col gap-3 rounded-lg border border-white/70 bg-white/70 p-4 text-sm font-bold text-navy shadow-sm md:flex-row md:items-center md:justify-between">
+            <span>스윽 내리면 이 웹을 어디부터 쓰면 되는지 바로 안내합니다.</span>
+            <TrackedLink href="#guide" eventName="guide_anchor_click" properties={{ label: "첫 화면 하단 이용가이드" }} className="inline-flex items-center justify-center rounded-lg bg-navy px-4 py-2.5 text-white">
+              이용가이드 보기
+            </TrackedLink>
+          </div>
         </div>
       </section>
 
-      <section id="coupon" className="scroll-mt-24 py-12">
-        <div className="mx-auto max-w-6xl px-4">
-          <CouponClaimPanel />
-        </div>
-      </section>
+      <section id="guide" className="scroll-mt-24 bg-white py-14 md:py-20">
+        <article className="mx-auto max-w-3xl px-4">
+          <div className="text-center">
+            <p className="inline-flex rounded-full border border-line bg-cream px-3 py-1 text-xs font-black text-gold">필독 가이드</p>
+            <h2 className="mt-5 font-display text-3xl font-black leading-tight text-navy md:text-4xl">처음 오셨다면 이 순서대로 보세요</h2>
+            <p className="mt-3 text-sm font-semibold text-muted">투자도구 허브 이용 Guide · 업데이트형 안내글</p>
+          </div>
 
-      <section id="guide" className="scroll-mt-24 bg-white py-14">
-        <article className="mx-auto max-w-4xl px-4">
-          <p className="text-sm font-black text-gold">이용가이드</p>
-          <h2 className="mt-3 font-display text-4xl font-black leading-tight text-navy">처음 오셨다면 이 순서대로 보세요</h2>
-          <p className="mt-4 text-lg leading-8 text-muted">
-            SNS에서 본 투자 아이디어를 바로 따라 하기보다, 무료 자료와 웹 기능으로 먼저 확인하는 흐름입니다.
+          <p className="mt-10 text-base leading-8 text-charcoal">
+            안녕하세요. SNS에서 본 성과나 지표가 궁금해서 들어오셨다면, 바로 따라 하기보다 먼저 무료 혜택을 담아두고 필요한 자료부터 확인해보세요. 이 페이지는 쿠폰, 무료 자료, 웹 기능, 앱 베타, 사전예약을 한 번에 찾을 수 있게 만든 이용 안내입니다.
           </p>
 
-          <div className="mt-8 rounded-lg border border-line bg-cream p-5">
-            <p className="text-sm font-black text-charcoal">빠른 링크 모음</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {quickLinks.map(([label, href]) => (
-                <TrackedLink key={label} href={href} eventName="guide_anchor_click" properties={{ label, href }} className="rounded-lg border border-line bg-white px-3 py-2 text-sm font-bold text-navy hover:border-gold">
-                  {label}
-                </TrackedLink>
-              ))}
-            </div>
+          <div className="mx-auto mt-9 max-w-xs border border-dashed border-muted/60 bg-white p-5 text-center">
+            <p className="font-display text-lg font-black text-navy">INDEX</p>
+            <ol className="mt-4 grid gap-2 text-sm font-bold text-charcoal">
+              <li>I. 이 웹은 무엇을 위한 곳인가</li>
+              <li>II. 처음 온 사람 추천 순서</li>
+              <li>III. 쿠폰과 무료 자료 사용법</li>
+              <li>IV. 빠른 링크 모음</li>
+            </ol>
           </div>
 
           <GuideBlock title="1. 이 웹은 무엇을 위한 곳인가">
@@ -214,7 +212,24 @@ export default function HomePage() {
           <GuideBlock title="4. 무료 자료와 기능을 언제 쓰면 좋은지">
             무료 자료는 처음 구조를 잡을 때, 웹 기능은 내가 본 아이디어를 직접 기록해볼 때, 앱 베타와 사전예약은 계속 다시 확인할 장치를 만들고 싶을 때 쓰면 좋습니다.
           </GuideBlock>
+
+          <div className="mt-10 rounded-lg border border-line bg-cream p-5">
+            <p className="text-sm font-black text-charcoal">빠른 링크 모음</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {quickLinks.map(([label, href]) => (
+                <TrackedLink key={label} href={href} eventName="guide_anchor_click" properties={{ label, href }} className="rounded-lg border border-line bg-white px-3 py-2 text-sm font-bold text-navy hover:border-gold">
+                  {label}
+                </TrackedLink>
+              ))}
+            </div>
+          </div>
         </article>
+      </section>
+
+      <section id="coupon" className="scroll-mt-24 py-12">
+        <div className="mx-auto max-w-6xl px-4">
+          <CouponClaimPanel />
+        </div>
       </section>
 
       <section id="tools-preview" className="scroll-mt-24 py-14">

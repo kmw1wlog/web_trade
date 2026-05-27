@@ -3,51 +3,52 @@
 ## Product Direction
 
 This project is not a blog-first site.
-This project is not a free-resource hub.
-This project is not a generic dashboard.
+This project is not a hard-sales-first checkout site.
+This project is not a crypto referral or trading signal dashboard.
 
-This project is a sales-first landing website for paid investment routine products.
+This project is an SNS-traffic landing hub where visitors first save free benefits, then learn how to use the web through a scrollable guide.
 
 Primary goal:
-Show paid products first and convert Instagram traffic into one of these offers:
-- ebook
-- premium notes
-- web tools
-- mock trading league
-- course waitlist
+Convert Instagram, Twitter/X, Shorts, and blog visitors into one of these soft commitments:
+- 3-day / 10-use free coupon
+- free indicators and ebook kit
+- premium trial waitlist
+- web tool trial
 - app beta waitlist
+- course/tool preorder waitlist
 
-The homepage must feel like an expert-led product sales landing page.
+The homepage must feel like a card-first benefit hub, not a long hero landing page.
 
 ## Homepage Priority
 
 The homepage section order must be:
 
-1. Hero with paid product CTA
-2. Paid product cards
-3. Problem framing
-4. Flagship ebook section
-5. Product recommendation section
-6. Free preview section
-7. Blog preview
-8. Trust/review section
-9. FAQ
-10. Disclosure
-11. Sticky CTA
+1. Compact header copy with six free-benefit cards immediately visible
+2. Scrollable guide article explaining how to use the web
+3. Coupon claim panel
+4. Tool preview
+5. Free kit
+6. Premium trial
+7. App beta
+8. Preorder
+9. Community
+10. Blog preview
+11. Optional product preview
+12. Disclosure
 
-Never put blog posts, free resources, dashboards, API waitlists, or crypto content above paid product cards.
+Never let a large hero paragraph, blog posts, paid product grid, API waitlist, or crypto content take priority above the six benefit cards.
 
 ## Navigation
 
 Main nav:
-- 상품
-- 기능웹
+- 무료혜택
+- 지표/기능
+- 이용가이드
 - 웹블로그
-- 모의투자
-- 앱/강의 대기
+- 앱/사전예약
 - 제휴문의
 
-Do not put free resources or crypto in the main nav.
+Do not put crypto in the main nav.
 
 ## Routes
 
@@ -72,24 +73,18 @@ Use these primary routes:
 - /terms
 
 If old `/articles` exists, redirect or migrate it to `/blog`.
-If old `/free` exists, it must not be a homepage priority.
 
 ## Design Style
 
-Expert-led sales landing.
-Clean white/cream background.
-Dark navy/charcoal typography.
-Gold/green accent.
-Large hero.
-Strong product cards.
-Clear prices.
-Clear CTAs.
-Mobile sticky CTA.
+Keep the navy, gold, cream, green, line, and white card system.
+The first screen should resemble a clean card shelf: compact copy, large clickable cards, clear benefits, and strong tap targets.
+The guide section should read like a blog/article guide, with index and anchor links.
 
 Avoid:
+- long explanation-first hero
 - dashboard-first look
 - blog-first look
-- free-tool-directory look
+- aggressive paid checkout pressure
 - crypto trading room aesthetic
 - exaggerated profit claims
 
@@ -121,12 +116,11 @@ Use:
 ## Definition of Done
 
 The homepage must immediately communicate:
-“This is a paid product sales site for organizing trading routines.”
+“Save free benefits first, then use the guide to decide what to try.”
 
 It must not communicate:
 “This is a blog.”
-“This is a free resource library.”
-“This is a dashboard.”
+“This is only a paid checkout page.”
 “This is a crypto referral site.”
 
-Run lint and build before finishing.
+Run lint, test, and build before finishing when feasible.
