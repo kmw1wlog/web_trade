@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import { TrackedLink } from "@/components/home/TrackedLink";
 import { navItems } from "@/content/navigation";
 
 export function SiteHeader() {
@@ -7,7 +8,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Link href="/" className="font-display text-lg font-bold text-navy">
-          투자 루틴 스케일링
+          루틴스케일링
         </Link>
         <nav className="hidden items-center gap-5 text-sm font-semibold text-muted md:flex">
           {navItems.map((item) => (
@@ -16,9 +17,9 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <Link href="/products" className="hidden rounded-lg bg-navy px-4 py-2 text-sm font-bold text-white transition hover:bg-green md:inline-flex">
-          대표 상품 보기
-        </Link>
+        <TrackedLink href="/#coupon" eventName="coupon_claim_click" properties={{ location: "header" }} className="hidden rounded-lg bg-navy px-4 py-2 text-sm font-bold text-white transition hover:bg-green md:inline-flex">
+          무료 쿠폰 받기
+        </TrackedLink>
         <details className="relative md:hidden">
           <summary className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-lg border border-line text-navy">
             <Menu size={19} />
@@ -29,9 +30,9 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <Link href="/products/ebook" className="rounded-md bg-navy px-3 py-2 text-sm font-bold text-white">
-              대표 상품 보기
-            </Link>
+            <TrackedLink href="/#coupon" eventName="coupon_claim_click" properties={{ location: "mobile_menu" }} className="rounded-md bg-navy px-3 py-2 text-sm font-bold text-white">
+              무료 쿠폰 받기
+            </TrackedLink>
           </div>
         </details>
       </div>

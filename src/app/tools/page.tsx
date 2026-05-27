@@ -26,21 +26,21 @@ export default function ToolsPage() {
         </div>
       </section>
 
-      <section className="py-12">
+      <section id="rr-calculator" className="scroll-mt-24 py-12">
         <div className="mx-auto max-w-6xl px-4">
           <SectionHeading title="손익비 계산기" />
           <RiskRewardCalculator />
         </div>
       </section>
 
-      <section className="bg-white py-12">
+      <section id="color-classifier" className="scroll-mt-24 bg-white py-12">
         <div className="mx-auto max-w-6xl px-4">
           <SectionHeading title="관심종목 색상 분류" description="빨강은 강한 관심/급등 관찰, 파랑은 눌림/관찰, 회색은 제외/복기입니다." />
           <ColorClassifier />
         </div>
       </section>
 
-      <section className="py-12">
+      <section id="trade-journal" className="scroll-mt-24 py-12">
         <div className="mx-auto max-w-4xl px-4">
           <SectionHeading title="모의투자 기록장" />
           <TradeJournalForm />

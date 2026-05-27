@@ -1,9 +1,9 @@
 export const navItems = [
-  { label: "상품", href: "/products" },
-  { label: "기능웹", href: "/tools" },
+  { label: "무료혜택", href: "/#coupon" },
+  { label: "지표/기능", href: "/#tools-preview" },
+  { label: "이용가이드", href: "/#guide" },
   { label: "웹블로그", href: "/blog" },
-  { label: "모의투자", href: "/mock" },
-  { label: "앱/강의 대기", href: "/waitlist" },
+  { label: "앱/사전예약", href: "/#app-beta" },
   { label: "제휴문의", href: "/partners" }
 ];
 

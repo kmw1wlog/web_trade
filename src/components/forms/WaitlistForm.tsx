@@ -8,12 +8,14 @@ export function WaitlistForm({
   type,
   options,
   source,
-  persona
+  persona,
+  submitLabel = "사전예약 신청"
 }: {
   type: "app" | "course" | "mock" | "api" | "crypto" | "premium";
   options: readonly string[];
   source?: string;
   persona?: string;
+  submitLabel?: string;
 }) {
   const [email, setEmail] = useState("");
   const [interest, setInterest] = useState("");
@@ -48,6 +50,9 @@ export function WaitlistForm({
     }
 
     trackEvent(type === "crypto" ? "crypto_waitlist_submit" : "waitlist_submit", { type, selectedOptions });
+    if (source === "home_app_beta") trackEvent("app_beta_click", { selectedOptions });
+    if (source === "home_premium_trial") trackEvent("premium_trial_click", { selectedOptions });
+    if (source === "home_preorder") trackEvent("preorder_click", { selectedOptions });
     setStatus({ type: "success", message: data.message || "대기 신청이 접수되었습니다." });
   }
 
@@ -75,8 +80,8 @@ export function WaitlistForm({
         onChange={(event) => setInterest(event.target.value)}
         placeholder="관심사 선택 입력"
       />
-      <button className="rounded-2xl bg-ink px-4 py-3 text-sm font-bold text-paper transition hover:bg-moss" type="submit">
-        사전예약 신청
+      <button className="rounded-2xl bg-navy px-4 py-3 text-sm font-bold text-white transition hover:bg-green" type="submit">
+        {submitLabel}
       </button>
       <FormStatusMessage status={status} />
     </form>

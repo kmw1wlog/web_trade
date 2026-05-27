@@ -5,9 +5,9 @@ export function SiteFooter() {
     <footer className="mt-20 border-t border-line bg-navy text-white">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-[1.5fr_1fr_1fr]">
         <div>
-          <p className="font-display text-2xl font-bold">투자 루틴 스케일링</p>
+          <p className="font-display text-2xl font-bold">투자도구 허브</p>
           <p className="mt-3 max-w-xl text-sm leading-6 text-white/75">
-            투자 루틴 스케일링은 투자 추천, 종목 리딩, 자산 운용, 일임, 수익 보장 서비스를 제공하지 않습니다.
+            투자도구 허브는 투자 추천, 종목 리딩, 자산 운용, 일임, 수익 보장 서비스를 제공하지 않습니다.
             모든 자료는 교육·기록·모의투자 목적입니다.
           </p>
         </div>
