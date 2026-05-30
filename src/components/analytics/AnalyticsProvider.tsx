@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { useEffect } from "react";
-import { initPostHog, storeUtmParams } from "@/lib/analytics";
+import { initMixpanel, initPostHog, storeUtmParams } from "@/lib/analytics";
 
 export function AnalyticsProvider() {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
@@ -10,6 +10,7 @@ export function AnalyticsProvider() {
   useEffect(() => {
     storeUtmParams();
     initPostHog();
+    initMixpanel();
   }, []);
 
   return gaId ? (

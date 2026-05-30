@@ -1,6 +1,7 @@
 export const navItems = [
   { label: "무료혜택", href: "/#coupon" },
-  { label: "지표/기능", href: "/#tools-preview" },
+  { label: "지표찾기", href: "/tools/indicator-finder" },
+  { label: "조건식DB", href: "/recipes" },
   { label: "이용가이드", href: "/#guide" },
   { label: "웹블로그", href: "/blog" },
   { label: "앱/사전예약", href: "/#app-beta" },
@@ -8,6 +9,12 @@ export const navItems = [
 ];
 
 export const toolItems = [
+  {
+    slug: "indicator-finder",
+    title: "지표/조건식 찾기",
+    href: "/tools/indicator-finder",
+    description: "상황을 고르면 조건식과 지표 레시피를 추천합니다."
+  },
   {
     slug: "rr-calculator",
     title: "손익비 계산기",

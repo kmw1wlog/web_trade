@@ -1,4 +1,4 @@
-import { BarChart3, Bell, BookOpen, MessageCircle, NotebookPen, Palette, Send, Users } from "lucide-react";
+import { BarChart3, Bell, BookOpen, MessageCircle, NotebookPen, Palette, Search, Send, Users } from "lucide-react";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { BenefitCard, type BenefitCardItem } from "@/components/home/BenefitCard";
 import { BenefitWallet } from "@/components/home/BenefitWallet";
@@ -27,7 +27,7 @@ const benefitCards: BenefitCardItem[] = [
     label: "자료",
     title: "무료 지표·전자책",
     description: "CVD, 거래량, 조건식 입문 자료를 먼저 담아둡니다.",
-    href: "#free-kit",
+    href: "/guide-map",
     cta: "자료 받기",
     eventName: "free_kit_click"
   },
@@ -45,7 +45,7 @@ const benefitCards: BenefitCardItem[] = [
     label: "웹",
     title: "무료 웹 기능",
     description: "지표, 알림, 조건식, 모의투자 기능을 데모로 먼저 눌러봅니다.",
-    href: "#tools-preview",
+    href: "/tools/indicator-finder",
     cta: "기능 보기",
     eventName: "web_tool_try_click"
   },
@@ -70,6 +70,13 @@ const benefitCards: BenefitCardItem[] = [
 ];
 
 const toolPreviews = [
+  {
+    title: "지표/조건식 문답",
+    description: "상황을 고르면 80개 레시피 중 필요한 조건식을 추천합니다.",
+    href: "/tools/indicator-finder",
+    icon: Search,
+    caption: "무료 시작"
+  },
   {
     title: "CVD 예시 차트",
     description: "거래대금 흐름을 구간별로 살펴보는 정적 데모입니다.",
@@ -109,8 +116,8 @@ const toolPreviews = [
 
 const quickLinks = [
   ["무료 쿠폰 받기", "#coupon"],
-  ["무료 자료 받기", "#free-kit"],
-  ["웹 기능 체험", "#tools-preview"],
+  ["무료 자료 맵 보기", "/guide-map"],
+  ["지표 찾기 시작", "/tools/indicator-finder"],
   ["앱 베타 신청", "#app-beta"],
   ["사전예약 보기", "#preorder"],
   ["웹블로그 보기", "/blog"],
@@ -151,6 +158,14 @@ export default function HomePage() {
             <p className="max-w-xl text-sm font-semibold leading-6 text-muted">
               긴 설명보다 먼저 눌러볼 것부터 모았습니다. 종목 추천이나 수익 보장이 아니라, 직접 확인할 수 있는 자료와 도구입니다.
             </p>
+          </div>
+          <div className="mb-5 flex flex-wrap gap-2">
+            <TrackedLink href="/tools/indicator-finder" eventName="indicator_finder_started" properties={{ location: "home_top" }} className="rounded-lg bg-green px-5 py-3 text-sm font-black text-white">
+              지표 찾기 시작(무료)
+            </TrackedLink>
+            <TrackedLink href="/recipes" eventName="condition_results_viewed" properties={{ location: "home_top", source: "recipes_cta" }} className="rounded-lg border border-navy bg-white px-5 py-3 text-sm font-black text-navy">
+              조건식 80개 보기
+            </TrackedLink>
           </div>
           <div className="grid gap-4 xl:grid-cols-[1fr_340px]">
             <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
@@ -239,7 +254,7 @@ export default function HomePage() {
       <section id="tools-preview" className="scroll-mt-24 py-14">
         <div className="mx-auto max-w-6xl px-4">
           <SectionHeading title="이런 기능을 먼저 눌러볼 수 있습니다" description="실시간 데이터처럼 과장하지 않고, 현재 버전에서 확인 가능한 데모와 예시 중심으로 제공합니다." />
-          <div className="grid gap-4 md:grid-cols-5">
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
             {toolPreviews.map((tool) => {
               const Icon = tool.icon;
               return (

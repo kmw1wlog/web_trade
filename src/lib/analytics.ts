@@ -1,8 +1,11 @@
 "use client";
 
+import mixpanel from "mixpanel-browser";
 import posthog from "posthog-js";
 
 export type EventProperties = Record<string, unknown>;
+
+let mixpanelInitialized = false;
 
 export function initPostHog() {
   const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
@@ -14,8 +17,25 @@ export function initPostHog() {
   });
 }
 
+export function initMixpanel() {
+  const token = process.env.NEXT_PUBLIC_MIXPANEL_TOKEN;
+  if (!token || typeof window === "undefined" || mixpanelInitialized) return;
+  if (window.localStorage.getItem("mixpanel_consent") === "denied") return;
+
+  mixpanel.init(token, {
+    debug: process.env.NODE_ENV === "development",
+    track_pageview: true,
+    persistence: "localStorage"
+  });
+  mixpanelInitialized = true;
+}
+
 export function trackEvent(eventName: string, properties?: EventProperties) {
   if (typeof window === "undefined") return;
+
+  if (process.env.NEXT_PUBLIC_MIXPANEL_TOKEN && mixpanelInitialized) {
+    mixpanel.track(eventName, properties);
+  }
 
   if (process.env.NEXT_PUBLIC_POSTHOG_KEY) {
     posthog.capture(eventName, properties);

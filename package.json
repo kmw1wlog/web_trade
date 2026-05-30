@@ -17,6 +17,7 @@
     "clsx": "^2.1.1",
     "creem_io": "^1.1.0",
     "lucide-react": "^0.468.0",
+    "mixpanel-browser": "^2.80.0",
     "next": "14.2.35",
     "posthog-js": "^1.184.4",
     "react": "^18.3.1",
