@@ -10,6 +10,7 @@ export function BenefitWallet() {
     benefits: [],
     updatedAt: new Date().toISOString()
   }));
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     function syncWallet() {
@@ -17,6 +18,7 @@ export function BenefitWallet() {
     }
 
     syncWallet();
+    setReady(true);
     window.addEventListener("benefit-wallet-change", syncWallet);
     window.addEventListener("storage", syncWallet);
     trackEvent("coupon_wallet_view", { benefitsCount: readBenefitWallet().benefits.length });
@@ -31,7 +33,7 @@ export function BenefitWallet() {
   const hasBenefits = wallet.benefits.length > 0;
 
   return (
-    <aside data-testid="benefit-wallet" className="rounded-lg border border-white/75 bg-white p-4 shadow-[0_16px_36px_rgba(21,23,26,0.08)] md:p-5">
+    <aside data-testid="benefit-wallet" data-wallet-ready={ready ? "true" : "false"} className="rounded-lg border border-white/75 bg-white p-4 shadow-[0_16px_36px_rgba(21,23,26,0.08)] md:p-5">
       <div className="flex items-center justify-between gap-3">
         <div>
           <p className="text-xs font-black uppercase tracking-[0.18em] text-gold">MY WALLET</p>

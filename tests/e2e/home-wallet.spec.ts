@@ -8,11 +8,12 @@ test("home benefit wallet saves card clicks and coupon claims", async ({ page })
     await route.fulfill({ contentType: "application/json", body: JSON.stringify({ ok: true, message: "자료 신청이 접수되었습니다." }) });
   });
 
-  await page.goto("/");
+  await page.goto("/", { waitUntil: "domcontentloaded" });
   await page.evaluate(() => localStorage.clear());
-  await page.reload();
+  await page.reload({ waitUntil: "domcontentloaded" });
 
   await expect(page.getByTestId("benefit-wallet")).toBeVisible();
+  await expect(page.getByTestId("benefit-wallet")).toHaveAttribute("data-wallet-ready", "true");
   await expect(page.getByTestId("benefit-card-coupon")).toBeVisible();
   await expect(page.getByTestId("benefit-card-free-kit")).toBeVisible();
   await expect(page.getByTestId("benefit-card-premium-trial")).toBeVisible();
@@ -24,7 +25,7 @@ test("home benefit wallet saves card clicks and coupon claims", async ({ page })
   await page.getByTestId("benefit-card-free-kit").click();
   await expect(page.getByTestId("wallet-benefit-list")).toContainText("무료 지표·전자책");
 
-  await page.reload();
+  await page.reload({ waitUntil: "domcontentloaded" });
   await expect(page.getByTestId("wallet-benefit-list")).toContainText("무료 지표·전자책");
 
   await page.getByTestId("benefit-card-coupon").click();
@@ -39,7 +40,7 @@ test("home benefit wallet saves card clicks and coupon claims", async ({ page })
   await expect(page.getByTestId("wallet-coupon-uses")).toHaveText("10회");
   await expect(page.getByTestId("wallet-benefit-list")).toContainText("3일 무료 이용 10회권");
 
-  await page.reload();
+  await page.reload({ waitUntil: "domcontentloaded" });
   await expect(page.getByTestId("wallet-coupon-days")).toHaveText("3일");
   await expect(page.getByTestId("wallet-benefit-list")).toContainText("3일 무료 이용 10회권");
 });
