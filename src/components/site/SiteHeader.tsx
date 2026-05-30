@@ -17,8 +17,8 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <TrackedLink href="/tools/indicator-finder" eventName="indicator_finder_started" properties={{ location: "header" }} className="hidden rounded-lg bg-navy px-4 py-2 text-sm font-bold text-white transition hover:bg-green md:inline-flex">
-          지표 찾기 시작
+        <TrackedLink href="/tools/cvd" eventName="web_tool_try_click" properties={{ location: "header", tool: "cvd" }} className="hidden rounded-lg bg-navy px-4 py-2 text-sm font-bold text-white transition hover:bg-green md:inline-flex">
+          CVD 차트 체험
         </TrackedLink>
         <details className="relative md:hidden">
           <summary className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-lg border border-line text-navy">
@@ -30,8 +30,8 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <TrackedLink href="/tools/indicator-finder" eventName="indicator_finder_started" properties={{ location: "mobile_menu" }} className="rounded-md bg-navy px-3 py-2 text-sm font-bold text-white">
-              지표 찾기 시작
+            <TrackedLink href="/tools/cvd" eventName="web_tool_try_click" properties={{ location: "mobile_menu", tool: "cvd" }} className="rounded-md bg-navy px-3 py-2 text-sm font-bold text-white">
+              CVD 차트 체험
             </TrackedLink>
           </div>
         </details>

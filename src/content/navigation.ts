@@ -1,7 +1,8 @@
 export const navItems = [
   { label: "무료혜택", href: "/#coupon" },
+  { label: "CVD차트", href: "/tools/cvd" },
+  { label: "무료전자책", href: "/ebooks" },
   { label: "지표찾기", href: "/tools/indicator-finder" },
-  { label: "조건식DB", href: "/recipes" },
   { label: "이용가이드", href: "/#guide" },
   { label: "웹블로그", href: "/blog" },
   { label: "앱/사전예약", href: "/#app-beta" },
@@ -9,6 +10,12 @@ export const navItems = [
 ];
 
 export const toolItems = [
+  {
+    slug: "cvd",
+    title: "CVD 차트 데모",
+    href: "/tools/cvd",
+    description: "가격대별 CVD, 통합/개별 모드, 상관계수, 랭킹과 히트맵을 체험합니다."
+  },
   {
     slug: "indicator-finder",
     title: "지표/조건식 찾기",

@@ -1,7 +1,6 @@
 import { BarChart3, Bell, BookOpen, MessageCircle, NotebookPen, Palette, Search, Send, Users } from "lucide-react";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { BenefitCard, type BenefitCardItem } from "@/components/home/BenefitCard";
-import { BenefitWallet } from "@/components/home/BenefitWallet";
 import { CouponClaimPanel } from "@/components/home/CouponClaimPanel";
 import { FreeKitPanel } from "@/components/home/FreeKitPanel";
 import { TrackedLink } from "@/components/home/TrackedLink";
@@ -27,7 +26,7 @@ const benefitCards: BenefitCardItem[] = [
     label: "자료",
     title: "무료 지표·전자책",
     description: "CVD, 거래량, 조건식 입문 자료를 먼저 담아둡니다.",
-    href: "/guide-map",
+    href: "/ebooks",
     cta: "자료 받기",
     eventName: "free_kit_click"
   },
@@ -44,9 +43,9 @@ const benefitCards: BenefitCardItem[] = [
     id: "web-tools",
     label: "웹",
     title: "무료 웹 기능",
-    description: "지표, 알림, 조건식, 모의투자 기능을 데모로 먼저 눌러봅니다.",
-    href: "/tools/indicator-finder",
-    cta: "기능 보기",
+    description: "CVD 차트, 랭킹, 히트맵, 조건식 문답을 데모로 눌러봅니다.",
+    href: "/tools/cvd",
+    cta: "CVD 보기",
     eventName: "web_tool_try_click"
   },
   {
@@ -71,18 +70,25 @@ const benefitCards: BenefitCardItem[] = [
 
 const toolPreviews = [
   {
+    title: "CVD 차트",
+    description: "가격대별 CVD, 통합/개별 모드, 상관계수까지 직접 눌러봅니다.",
+    href: "/tools/cvd",
+    icon: BarChart3,
+    caption: "무료 시작"
+  },
+  {
+    title: "CVD 랭킹/히트맵",
+    description: "시장 폭과 자금 흐름을 랭킹·히트맵 카드로 빠르게 확인합니다.",
+    href: "/tools/cvd",
+    icon: Bell,
+    caption: "데모 예시"
+  },
+  {
     title: "지표/조건식 문답",
     description: "상황을 고르면 80개 레시피 중 필요한 조건식을 추천합니다.",
     href: "/tools/indicator-finder",
     icon: Search,
     caption: "무료 시작"
-  },
-  {
-    title: "CVD 예시 차트",
-    description: "거래대금 흐름을 구간별로 살펴보는 정적 데모입니다.",
-    href: "/tools",
-    icon: BarChart3,
-    caption: "데모 예시"
   },
   {
     title: "거래량 급증 카드",
@@ -116,7 +122,8 @@ const toolPreviews = [
 
 const quickLinks = [
   ["무료 쿠폰 받기", "#coupon"],
-  ["무료 자료 맵 보기", "/guide-map"],
+  ["무료 전자책 보기", "/ebooks"],
+  ["CVD 차트 체험", "/tools/cvd"],
   ["지표 찾기 시작", "/tools/indicator-finder"],
   ["앱 베타 신청", "#app-beta"],
   ["사전예약 보기", "#preorder"],
@@ -150,30 +157,19 @@ export default function HomePage() {
     <div className="bg-cream">
       <section className="border-b border-line bg-[#e8e8e6]">
         <div className="mx-auto max-w-[1500px] px-4 py-7 md:px-8 md:py-12">
-          <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-gold">SNS 유입자용 보관함</p>
-              <h1 className="mt-2 font-display text-3xl font-black leading-tight text-navy md:text-4xl">무료 혜택부터 담아두세요</h1>
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-gold">SNS 유입자용 무료 혜택 허브</p>
+              <h1 className="mt-1 font-display text-3xl font-black leading-tight text-navy md:text-4xl">먼저 눌러볼 것부터 고르세요</h1>
             </div>
-            <p className="max-w-xl text-sm font-semibold leading-6 text-muted">
-              긴 설명보다 먼저 눌러볼 것부터 모았습니다. 종목 추천이나 수익 보장이 아니라, 직접 확인할 수 있는 자료와 도구입니다.
+            <p className="max-w-lg text-sm font-semibold leading-6 text-muted">
+              CVD 차트, 무료 전자책, 앱 베타, 사전예약을 한 화면에서 담아둡니다.
             </p>
           </div>
-          <div className="mb-5 flex flex-wrap gap-2">
-            <TrackedLink href="/tools/indicator-finder" eventName="indicator_finder_started" properties={{ location: "home_top" }} className="rounded-lg bg-green px-5 py-3 text-sm font-black text-white">
-              지표 찾기 시작(무료)
-            </TrackedLink>
-            <TrackedLink href="/recipes" eventName="condition_results_viewed" properties={{ location: "home_top", source: "recipes_cta" }} className="rounded-lg border border-navy bg-white px-5 py-3 text-sm font-black text-navy">
-              조건식 80개 보기
-            </TrackedLink>
-          </div>
-          <div className="grid gap-4 xl:grid-cols-[1fr_340px]">
-            <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
-              {benefitCards.map((card, index) => (
-                <BenefitCard key={card.id} card={card} featured={index === 0} />
-              ))}
-            </div>
-            <BenefitWallet />
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6">
+            {benefitCards.map((card, index) => (
+              <BenefitCard key={card.id} card={card} featured={index === 0 || card.id === "web-tools"} />
+            ))}
           </div>
           <div className="mt-6 flex flex-col gap-3 rounded-lg border border-white/70 bg-white/70 p-4 text-sm font-bold text-navy shadow-sm md:flex-row md:items-center md:justify-between">
             <span>스윽 내리면 이 웹을 어디부터 쓰면 되는지 바로 안내합니다.</span>

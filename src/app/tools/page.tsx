@@ -2,13 +2,14 @@ import Link from "next/link";
 import { TradeJournalForm } from "@/components/forms/TradeJournalForm";
 import { DisclosureBanner } from "@/components/site/DisclosureBanner";
 import { SectionHeading } from "@/components/site/SectionHeading";
+import { CvdDashboard } from "@/components/tools/CvdDashboard";
 import { ColorClassifier } from "@/components/tools/ColorClassifier";
 import { RiskRewardCalculator } from "@/components/tools/RiskRewardCalculator";
 import { IndicatorFinder } from "@/components/tools/IndicatorFinder";
 
 export const metadata = {
   title: "기능웹 | 투자 루틴 스케일링",
-  description: "지표/조건식 찾기, 손익비 계산기, 관심종목 색상 분류, 모의투자 기록장을 한 화면에서 사용하세요."
+  description: "CVD 차트, 지표/조건식 찾기, 손익비 계산기, 관심종목 색상 분류, 모의투자 기록장을 한 화면에서 사용하세요."
 };
 
 export default function ToolsPage() {
@@ -19,11 +20,17 @@ export default function ToolsPage() {
           <p className="text-sm font-black text-gold">기능웹</p>
           <h1 className="mt-4 font-display text-5xl font-black text-navy">기록하지 않는 조건식은 사라집니다.</h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">
-            조건식, 관심종목, 모의투자, 복기를 웹에서 남기세요. 기능웹은 메인 상품을 보조하는 실제 사용 페이지입니다.
+            CVD 시각화, 조건식 문답, 관심종목, 모의투자, 복기를 웹에서 먼저 눌러봅니다. 현재 MVP는 실시간 데이터가 아닌 데모/기록 도구 중심입니다.
           </p>
-          <Link href="/tools/indicator-finder" className="mt-7 inline-flex rounded-lg bg-navy px-5 py-3 text-sm font-bold text-white">
-            지표 찾기 시작
+          <Link href="/tools/cvd" className="mt-7 inline-flex rounded-lg bg-navy px-5 py-3 text-sm font-bold text-white">
+            CVD 차트 체험
           </Link>
+        </div>
+      </section>
+
+      <section id="cvd" className="scroll-mt-24 py-12">
+        <div className="mx-auto max-w-[1500px] px-4">
+          <CvdDashboard />
         </div>
       </section>
 
