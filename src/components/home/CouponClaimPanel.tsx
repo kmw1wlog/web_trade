@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FormStatusMessage } from "@/components/forms/FormStatusMessage";
 import { getStoredAttribution, trackEvent } from "@/lib/analytics";
+import { claimCouponInWallet } from "@/lib/benefitWallet";
 
 const benefits = ["무료자료", "앱베타", "사전예약", "프리미엄"];
 
@@ -47,7 +48,9 @@ export function CouponClaimPanel() {
       return;
     }
 
-    setStatus({ type: "success", message: "쿠폰이 보관되었습니다. 무료자료와 기능 체험 순서를 아래에서 확인하세요." });
+    claimCouponInWallet(selectedBenefits);
+    trackEvent("benefit_saved", { id: "coupon", title: "3일 무료 이용 10회권", source: "coupon_form", selectedBenefits });
+    setStatus({ type: "success", message: "쿠폰이 보관되었습니다. 첫 화면의 내 혜택 보관함에서도 다시 확인할 수 있습니다." });
   }
 
   return (

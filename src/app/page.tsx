@@ -1,6 +1,7 @@
 import { BarChart3, Bell, BookOpen, MessageCircle, NotebookPen, Palette, Send, Users } from "lucide-react";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { BenefitCard, type BenefitCardItem } from "@/components/home/BenefitCard";
+import { BenefitWallet } from "@/components/home/BenefitWallet";
 import { CouponClaimPanel } from "@/components/home/CouponClaimPanel";
 import { FreeKitPanel } from "@/components/home/FreeKitPanel";
 import { TrackedLink } from "@/components/home/TrackedLink";
@@ -151,10 +152,13 @@ export default function HomePage() {
               긴 설명보다 먼저 눌러볼 것부터 모았습니다. 종목 추천이나 수익 보장이 아니라, 직접 확인할 수 있는 자료와 도구입니다.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 2xl:grid-cols-6">
-            {benefitCards.map((card, index) => (
-              <BenefitCard key={card.id} card={card} featured={index === 0} />
-            ))}
+          <div className="grid gap-4 xl:grid-cols-[1fr_340px]">
+            <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
+              {benefitCards.map((card, index) => (
+                <BenefitCard key={card.id} card={card} featured={index === 0} />
+              ))}
+            </div>
+            <BenefitWallet />
           </div>
           <div className="mt-6 flex flex-col gap-3 rounded-lg border border-white/70 bg-white/70 p-4 text-sm font-bold text-navy shadow-sm md:flex-row md:items-center md:justify-between">
             <span>스윽 내리면 이 웹을 어디부터 쓰면 되는지 바로 안내합니다.</span>

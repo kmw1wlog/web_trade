@@ -2,6 +2,7 @@
 
 import { ArrowRight, BarChart3, BookOpen, CalendarClock, Smartphone, Sparkles, Ticket, type LucideIcon } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import { saveBenefitToWallet } from "@/lib/benefitWallet";
 import { cn } from "@/lib/utils";
 
 const icons = {
@@ -27,7 +28,9 @@ export function BenefitCard({ card, featured = false }: { card: BenefitCardItem;
   const Icon = icons[card.id];
 
   function onClick() {
+    saveBenefitToWallet({ id: card.id, title: card.title, href: card.href });
     trackEvent("home_benefit_card_click", { id: card.id, title: card.title });
+    trackEvent("benefit_saved", { id: card.id, title: card.title, source: "home_card" });
     trackEvent(card.eventName, { id: card.id, title: card.title });
   }
 
@@ -35,8 +38,9 @@ export function BenefitCard({ card, featured = false }: { card: BenefitCardItem;
     <a
       href={card.href}
       onClick={onClick}
+      data-testid={`benefit-card-${card.id}`}
       className={cn(
-        "group flex min-h-[272px] flex-col rounded-lg border bg-white p-4 text-left shadow-[0_18px_38px_rgba(21,23,26,0.08)] transition hover:-translate-y-1 hover:shadow-soft md:min-h-[318px] md:p-5",
+        "group flex min-h-[272px] flex-col rounded-lg border bg-white p-4 text-left shadow-[0_18px_38px_rgba(21,23,26,0.08)] transition hover:-translate-y-1 hover:shadow-soft md:min-h-[286px] md:p-5",
         featured ? "border-gold ring-2 ring-gold/15" : "border-line"
       )}
     >

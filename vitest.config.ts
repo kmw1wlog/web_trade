@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 export default defineConfig({
   test: {
     environment: "jsdom",
+    exclude: ["node_modules", "tests/e2e/**"],
     globals: true
   },
   resolve: {
