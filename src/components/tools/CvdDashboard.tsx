@@ -31,7 +31,7 @@ const heatmap = [
   ["LINK", 8, 1]
 ] as const;
 
-export function CvdDashboard() {
+export function CvdDashboard({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const [chartMode, setChartMode] = useState<ChartMode>("integrated");
   const [valueMode, setValueMode] = useState<ValueMode>("relative");
   const [timeframe, setTimeframe] = useState<CvdTimeframe>("1W");
@@ -44,6 +44,7 @@ export function CvdDashboard() {
     series.slice(-correlationWindow).map((point) => point[bucket]),
     series.slice(-correlationWindow).map((point) => point.price)
   );
+  const HeadingTag = headingLevel;
 
   function trackControl(name: string, value: string | number) {
     trackEvent("cvd_demo_control_click", { name, value, timeframe, chartMode, valueMode });
@@ -55,7 +56,7 @@ export function CvdDashboard() {
         <div className="flex flex-col gap-4 border-b border-line pb-4 xl:flex-row xl:items-center xl:justify-between">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.18em] text-gold">CVD DEMO</p>
-            <h2 className="mt-2 font-display text-3xl font-black text-navy">가격대별 CVD 시각화</h2>
+            <HeadingTag className="mt-2 font-display text-3xl font-black text-navy">가격대별 CVD 시각화</HeadingTag>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
               CoinGlass식 대시보드와 치과의사 사이트의 CVD 카드 구조를 참고한 MVP 데모입니다. 현재 값은 실시간 데이터가 아니라 사용법을 검증하기 위한 예시입니다.
             </p>

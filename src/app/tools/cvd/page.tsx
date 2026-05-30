@@ -11,7 +11,7 @@ export default function CvdToolPage() {
   return (
     <div className="bg-cream py-8">
       <div className="mx-auto max-w-[1500px] px-4">
-        <CvdDashboard />
+        <CvdDashboard headingLevel="h1" />
         <div className="mx-auto mt-8 max-w-4xl">
           <DisclosureBanner />
         </div>
